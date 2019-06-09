@@ -15,3 +15,8 @@ const btnShowFavorite = document.getElementById('showFavourites');
 btnShowFavorite.addEventListener('click', () => {
   images.filter(image => !image.showFavorite()).forEach(image => image.hide());
 });
+
+const btnShowAll = document.getElementById('showAll');
+btnShowAll.addEventListener('click', () => {
+  images.forEach(image => image.show());
+});

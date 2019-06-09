@@ -29,4 +29,8 @@ export class Image {
   hide() {
     this.image.style.display = 'none';
   }
+
+  show() {
+    this.image.style.display = 'inline';
+  }
 }
