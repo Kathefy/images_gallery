@@ -15,9 +15,11 @@ imagesPaths.forEach(path => {
   image.className = 'images__image';
 
   gallery.appendChild(image);
+});
 
-  //Dodawanie zdjęcia do ulubionych
-  image.addEventListener('click', e => {
+//Dodawanie zdjęcia do ulubionych
+gallery.addEventListener('click', e => {
+  if (e.target.tagName === 'IMG') {
     e.target.classList.toggle('image--favourite');
-  });
+  }
 });
