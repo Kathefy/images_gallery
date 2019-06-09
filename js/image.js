@@ -17,7 +17,16 @@ export class Image {
 
     this.image = image;
   }
+
   addFavorite() {
     this.image.classList.toggle('image--favourite');
+  }
+
+  showFavorite() {
+    return this.image.classList.contains('image--favourite');
+  }
+
+  hide() {
+    this.image.style.display = 'none';
   }
 }

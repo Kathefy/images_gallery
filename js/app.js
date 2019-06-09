@@ -8,7 +8,10 @@ import { Image } from './image.js';
 
 const imagesPaths = [image1, image2, image3, image4, image5];
 
-imagesPaths.forEach(path => {
-  const image = new Image(path);
-  image.showImage();
+const images = imagesPaths.map(path => new Image(path));
+images.forEach(image => image.showImage());
+
+const btnShowFavorite = document.getElementById('showFavourites');
+btnShowFavorite.addEventListener('click', () => {
+  images.filter(image => !image.showFavorite()).forEach(image => image.hide());
 });
