@@ -7,19 +7,31 @@ import image5 from '/images/img5.jpg';
 
 const imagesPaths = [image1, image2, image3, image4, image5];
 
-const gallery = document.getElementById('images');
+class Image {
+  constructor(path) {
+    this.path = path;
+  }
+
+  showImage() {
+    const gallery = document.getElementById('images');
+
+    let image = document.createElement('img');
+    image.setAttribute('src', this.path);
+    image.className = 'images__image';
+    gallery.appendChild(image);
+
+    image.addEventListener('click', () => {
+      this.addFavorite();
+    });
+
+    this.image = image;
+  }
+  addFavorite() {
+    this.image.classList.toggle('image--favourite');
+  }
+}
 
 imagesPaths.forEach(path => {
-  let image = document.createElement('img');
-  image.setAttribute('src', path);
-  image.className = 'images__image';
-
-  gallery.appendChild(image);
-});
-
-//Dodawanie zdjęcia do ulubionych
-gallery.addEventListener('click', e => {
-  if (e.target.tagName === 'IMG') {
-    e.target.classList.toggle('image--favourite');
-  }
+  const image = new Image(path);
+  image.showImage();
 });
